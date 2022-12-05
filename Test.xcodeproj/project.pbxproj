@@ -16,6 +16,11 @@
 		63A38DAD293E473D00E44AD1 /* TestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DAC293E473D00E44AD1 /* TestUITestsLaunchTests.swift */; };
 		63A38DBC293E499900E44AD1 /* CarRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DBB293E499900E44AD1 /* CarRow.swift */; };
 		63A38DBE293E49AE00E44AD1 /* CarRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DBD293E49AE00E44AD1 /* CarRowViewModel.swift */; };
+		63A38DC1293E4C2700E44AD1 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DC0293E4C2700E44AD1 /* Image+Extension.swift */; };
+		63A38DC3293E4FC800E44AD1 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DC2293E4FC800E44AD1 /* Color+Extension.swift */; };
+		63A38DC5293E4FD800E44AD1 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DC4293E4FD800E44AD1 /* Sizing.swift */; };
+		63A38DC7293E50A100E44AD1 /* CarImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63A38DC6293E50A100E44AD1 /* CarImages.xcassets */; };
+		63A38DC9293E50AC00E44AD1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63A38DC8293E50AC00E44AD1 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,11 @@
 		63A38DAC293E473D00E44AD1 /* TestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		63A38DBB293E499900E44AD1 /* CarRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRow.swift; sourceTree = "<group>"; };
 		63A38DBD293E49AE00E44AD1 /* CarRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRowViewModel.swift; sourceTree = "<group>"; };
+		63A38DC0293E4C2700E44AD1 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
+		63A38DC2293E4FC800E44AD1 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		63A38DC4293E4FD800E44AD1 /* Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizing.swift; sourceTree = "<group>"; };
+		63A38DC6293E50A100E44AD1 /* CarImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CarImages.xcassets; sourceTree = "<group>"; };
+		63A38DC8293E50AC00E44AD1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				63A38D8F293E473D00E44AD1 /* TestApp.swift */,
+				63A38DC0293E4C2700E44AD1 /* Image+Extension.swift */,
+				63A38DC2293E4FC800E44AD1 /* Color+Extension.swift */,
+				63A38DC4293E4FD800E44AD1 /* Sizing.swift */,
 				63A38D8E293E473D00E44AD1 /* Test */,
 				63A38D9F293E473D00E44AD1 /* TestTests */,
 				63A38DA9293E473D00E44AD1 /* TestUITests */,
@@ -102,6 +115,8 @@
 				63A38DB9293E497C00E44AD1 /* Views */,
 				63A38DBA293E498300E44AD1 /* CarList */,
 				63A38D93293E473D00E44AD1 /* Assets.xcassets */,
+				63A38DC6293E50A100E44AD1 /* CarImages.xcassets */,
+				63A38DC8293E50AC00E44AD1 /* Colors.xcassets */,
 				63A38D95293E473D00E44AD1 /* Preview Content */,
 			);
 			path = Test;
@@ -253,6 +268,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A38DC7293E50A100E44AD1 /* CarImages.xcassets in Resources */,
+				63A38DC9293E50AC00E44AD1 /* Colors.xcassets in Resources */,
 				63A38D97293E473D00E44AD1 /* Preview Assets.xcassets in Resources */,
 				63A38D94293E473D00E44AD1 /* Assets.xcassets in Resources */,
 			);
@@ -282,6 +299,9 @@
 				63A38DBC293E499900E44AD1 /* CarRow.swift in Sources */,
 				63A38D92293E473D00E44AD1 /* CarListView.swift in Sources */,
 				63A38DBE293E49AE00E44AD1 /* CarRowViewModel.swift in Sources */,
+				63A38DC5293E4FD800E44AD1 /* Sizing.swift in Sources */,
+				63A38DC3293E4FC800E44AD1 /* Color+Extension.swift in Sources */,
+				63A38DC1293E4C2700E44AD1 /* Image+Extension.swift in Sources */,
 				63A38D90293E473D00E44AD1 /* TestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

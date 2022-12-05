@@ -11,9 +11,30 @@ import SwiftUI
 struct CarListView: View {
     
     @State var carsMock: [CarRowViewModel] = [
-        CarRowViewModel(name: "Alfa Romeo", price: "50.000$"),
-        CarRowViewModel(name: "BMW", price: "80.000$"),
-        CarRowViewModel(name: "Chevrolet", price: "35.000$"),
+        CarRowViewModel(
+            name: "Alpine Roadster",
+            price: "Price: 120k",
+            imageName: Image.alpineRoadster,
+            rating: 5
+        ),
+        CarRowViewModel(
+            name: "Range Rover",
+            price: "Price: 65k",
+            imageName: Image.rangeRover,
+            rating: 4
+        ),
+        CarRowViewModel(
+            name: "BMW 330i",
+            price: "Price: 55k",
+            imageName: Image.marcedezBenzGLC,
+            rating: 3
+        ),
+        CarRowViewModel(
+            name: "Mercedez benz",
+            price: "Price: 54k",
+            imageName: Image.rangeRover,
+            rating: 0
+        ),
     ]
         
     var body: some View {

@@ -11,4 +11,6 @@ struct CarRowViewModel: Identifiable {
     var id: String = UUID().uuidString
     let name: String
     let price: String
+    let imageName: String
+    let rating: Int
 }
