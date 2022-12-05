@@ -14,7 +14,8 @@ struct CarListView<ViewModelType: CarListViewModelProtocol & ObservableObject>: 
     
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 0.0) {
+            LazyVStack(alignment: .leading, spacing: 0.0) {
+                filters()
                 ForEach(viewModel.carList) { carViewModel in
                     let isExpanded = expandedRowId == carViewModel.id
                     Group {
@@ -50,6 +51,42 @@ struct CarListView<ViewModelType: CarListViewModelProtocol & ObservableObject>: 
         .onAppear {
             self.expandedRowId = viewModel.carList.first?.id
         }
+    }
+    
+    private func filters() -> some View {
+        VStack(alignment: .leading) {
+            Text("Filters")
+                .foregroundColor(.white)
+            Group {
+                Button(action: {
+                    print("Filter 1 tapped")
+                }, label: {
+                    Text("Any make")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                })
+
+                Button(action: {
+                    print("Filter 2 tapped")
+                }, label: {
+                    Text("Any model")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                })
+            }
+            .bold()
+            .foregroundColor(.guidomiaLightGrey)
+            .padding(CGFloat.smallSpacing)
+            .background(Color.white)
+            .cornerRadius(CGFloat.smallSpacing)
+            .shadow(
+                color: Color.black,
+                radius: CGSize.shadowSize.width,
+                x: CGSize.shadowSize.width, y: CGSize.shadowSize.height)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+        .background(Color.guidomiaDarkGrey)
+        .cornerRadius(8.0)
+        .padding()
     }
     
     @ViewBuilder
