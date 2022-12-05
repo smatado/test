@@ -9,16 +9,18 @@ import Foundation
 
 struct Car {
     var id: String
-    let name: String
+    let make: String
+    let model: String
     let price: Float
     let imageName: String
     let rating: Int
     let pros: [String]
     let cons: [String]
     
-    init(id: String = UUID().uuidString, name: String, price: Float, imageName: String, rating: Int, pros: [String] = [], cons: [String] = []) {
+    init(id: String = UUID().uuidString, make: String, model: String, price: Float, imageName: String, rating: Int, pros: [String] = [], cons: [String] = []) {
         self.id = id
-        self.name = name
+        self.make = make
+        self.model = model
         self.price = price
         self.imageName = imageName
         self.rating = rating

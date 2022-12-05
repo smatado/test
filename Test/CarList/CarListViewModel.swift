@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class CarListViewModel: CarListViewModelProtocol, ObservableObject {
     
@@ -13,44 +14,25 @@ class CarListViewModel: CarListViewModelProtocol, ObservableObject {
     
     @Published var carList = [CarRowViewModel]()
     
+    // MARK: - Private properties
+    
+    private var carsRepository: CarsRepositoryProtocol
+    private var cancellables = Set<AnyCancellable>()
+    
     // MARK: - Initializers
     
-    init() {
+    init(carsRepository: CarsRepositoryProtocol) {
+        self.carsRepository = carsRepository
         
-        // Mocked data
-        self.carList = [
-            CarRowViewModel(
-                car: Car(
-                    name: "Alpine Roadster",
-                    price: 120_000,
-                    imageName: ImageNames.alpineRoadster,
-                    rating: 5
-                )
-            ),
-            CarRowViewModel(
-                car: Car(
-                    name: "Range Rover",
-                    price: 65_000,
-                    imageName: ImageNames.rangeRover,
-                    rating: 4
-                )
-            ),
-            CarRowViewModel(
-                car: Car(
-                    name: "BMW 330i",
-                    price: 55_000,
-                    imageName: ImageNames.marcedezBenzGLC,
-                    rating: 3
-                )
-            ),
-            CarRowViewModel(
-                car: Car(
-                    name: "Mercedez benz",
-                    price: 54_000,
-                    imageName: ImageNames.rangeRover,
-                    rating: 0
-                )
-            ),
-        ]
+        carsRepository.cars
+            .subscribe(on: DispatchQueue.global())
+            .replaceError(with: [])
+            .map { cars in
+                return cars.map { CarRowViewModel(car: $0) }
+            }
+            .eraseToAnyPublisher()
+            .receive(on: RunLoop.main)
+            .assign(to: \.carList, on: self)
+            .store(in: &cancellables)
     }
 }

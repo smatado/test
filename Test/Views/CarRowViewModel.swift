@@ -17,7 +17,7 @@ struct CarRowViewModel: Identifiable {
     
     init(car: Car) {
         id = car.id
-        name = car.name
+        name = "\(car.make) \(car.model)"
         price = "\(String.priceLabel): \(car.price.formattedPrice)"
         imageName = car.imageName
         rating = car.rating
