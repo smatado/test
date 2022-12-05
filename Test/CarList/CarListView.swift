@@ -13,32 +13,40 @@ struct CarListView<ViewModelType: CarListViewModelProtocol & ObservableObject>: 
     @State var expandedRowId: String?
     
     var body: some View {
-        List(viewModel.carList) { carViewModel in
-            let isExpanded = expandedRowId == carViewModel.id
-            Group {
-                CarRow(carViewModel, isExpanded: isExpanded)
-                    .padding()
-                if isExpanded {
-                    VStack(alignment: .leading, spacing: 0.0) {
-                        if carViewModel.pros.count > 0 {
-                            reviewDetails(title: "Pros :", reviews: carViewModel.pros)
+        ScrollView {
+            LazyVStack(spacing: 0.0) {
+                ForEach(viewModel.carList) { carViewModel in
+                    let isExpanded = expandedRowId == carViewModel.id
+                    Group {
+                        CarRow(carViewModel, isExpanded: isExpanded)
+                            .padding()
+                        if isExpanded {
+                            VStack(alignment: .leading, spacing: 0.0) {
+                                if carViewModel.pros.count > 0 {
+                                    reviewDetails(title: "Pros :", reviews: carViewModel.pros)
+                                }
+                                if carViewModel.cons.count > 0 {
+                                    reviewDetails(title: "Cons :", reviews: carViewModel.cons)
+                                }
+                            }
                         }
-                        if carViewModel.cons.count > 0 {
-                            reviewDetails(title: "Cons :", reviews: carViewModel.cons)
+                        
+                    }
+                    .listRowInsets(EdgeInsets())
+                    .listRowSeparator(.hidden)
+                    .background(Color.guidomiaLightGrey)
+                    .onTapGesture {
+                        withAnimation {
+                            expandedRowId = isExpanded ? nil : carViewModel.id
                         }
                     }
-                }
-            }
-            .listRowInsets(EdgeInsets())
-            .listRowSeparator(.hidden)
-            .background(Color.guidomiaLightGrey)
-            .onTapGesture {
-                withAnimation {
-                    expandedRowId = isExpanded ? nil : carViewModel.id
+                    Rectangle()
+                        .foregroundColor(Color.guidomiaOrange)
+                        .frame(height: .separatorHeight)
+                        .padding(.mediumSpacing)
                 }
             }
         }
-        .listStyle(.plain)
         .onAppear {
             self.expandedRowId = viewModel.carList.first?.id
         }

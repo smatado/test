@@ -10,6 +10,7 @@ import Foundation
 extension CGFloat {
     static let imageWidth = 128.0
     static let mediumSpacing = 16.0
+    static let separatorHeight = 3.0
 }
 
 extension CGSize {
