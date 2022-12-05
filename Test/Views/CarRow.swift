@@ -10,16 +10,14 @@ import SwiftUI
 struct CarRow: View {
     
     private let viewModel: CarRowViewModel
+    private let isExpanded: Bool
 
-    init(_ viewModel: CarRowViewModel) {
+    init(_ viewModel: CarRowViewModel, isExpanded: Bool) {
         self.viewModel = viewModel
+        self.isExpanded = isExpanded
     }
-    
+        
     var body: some View {
-        collapsedContent
-    }
-    
-    private var collapsedContent: some View {
         HStack(alignment: .top, spacing: CGFloat.mediumSpacing) {
             Image(viewModel.imageName)
                 .resizable()
@@ -47,8 +45,6 @@ struct CarRow: View {
             }
             Spacer()
         }
-        .padding()
-        .background(Color.guidomiaLightGrey)
     }
 }
 
