@@ -8,9 +8,18 @@
 import Foundation
 
 struct CarRowViewModel: Identifiable {
-    var id: String = UUID().uuidString
+    
+    var id: String
     let name: String
     let price: String
     let imageName: String
     let rating: Int
+    
+    init(car: Car) {
+        id = car.id
+        name = car.name
+        price = "\(String.priceLabel): \(car.price.formattedPrice)"
+        imageName = car.imageName
+        rating = car.rating
+    }
 }

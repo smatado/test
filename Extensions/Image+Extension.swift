@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension Image {
+class ImageNames {
     static let alpineRoadster = "Alpine_roadster"
     static let bmw330i = "BMW_330i"
     static let marcedezBenzGLC = "Mercedez_benz_GLC"

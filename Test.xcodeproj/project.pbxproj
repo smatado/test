@@ -21,6 +21,11 @@
 		63A38DC5293E4FD800E44AD1 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DC4293E4FD800E44AD1 /* Sizing.swift */; };
 		63A38DC7293E50A100E44AD1 /* CarImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63A38DC6293E50A100E44AD1 /* CarImages.xcassets */; };
 		63A38DC9293E50AC00E44AD1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63A38DC8293E50AC00E44AD1 /* Colors.xcassets */; };
+		63A38DCB293E5FB300E44AD1 /* CarListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DCA293E5FB300E44AD1 /* CarListViewModel.swift */; };
+		63A38DCD293E622E00E44AD1 /* CarListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DCC293E622E00E44AD1 /* CarListViewModelProtocol.swift */; };
+		63A38DD1293E62D100E44AD1 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DD0293E62D100E44AD1 /* Car.swift */; };
+		63A38DD4293E698100E44AD1 /* Float+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DD3293E698100E44AD1 /* Float+Extensions.swift */; };
+		63A38DD6293E69A200E44AD1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DD5293E69A200E44AD1 /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,11 @@
 		63A38DC4293E4FD800E44AD1 /* Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizing.swift; sourceTree = "<group>"; };
 		63A38DC6293E50A100E44AD1 /* CarImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CarImages.xcassets; sourceTree = "<group>"; };
 		63A38DC8293E50AC00E44AD1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		63A38DCA293E5FB300E44AD1 /* CarListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewModel.swift; sourceTree = "<group>"; };
+		63A38DCC293E622E00E44AD1 /* CarListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewModelProtocol.swift; sourceTree = "<group>"; };
+		63A38DD0293E62D100E44AD1 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		63A38DD3293E698100E44AD1 /* Float+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Extensions.swift"; sourceTree = "<group>"; };
+		63A38DD5293E69A200E44AD1 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				63A38D8F293E473D00E44AD1 /* TestApp.swift */,
-				63A38DC0293E4C2700E44AD1 /* Image+Extension.swift */,
-				63A38DC2293E4FC800E44AD1 /* Color+Extension.swift */,
-				63A38DC4293E4FD800E44AD1 /* Sizing.swift */,
+				63A38DD2293E695B00E44AD1 /* Extensions */,
 				63A38D8E293E473D00E44AD1 /* Test */,
 				63A38D9F293E473D00E44AD1 /* TestTests */,
 				63A38DA9293E473D00E44AD1 /* TestUITests */,
@@ -112,6 +120,8 @@
 		63A38D8E293E473D00E44AD1 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				63A38DCF293E62B200E44AD1 /* Entities */,
+				63A38DCE293E627200E44AD1 /* Protocols */,
 				63A38DB9293E497C00E44AD1 /* Views */,
 				63A38DBA293E498300E44AD1 /* CarList */,
 				63A38D93293E473D00E44AD1 /* Assets.xcassets */,
@@ -160,8 +170,37 @@
 			isa = PBXGroup;
 			children = (
 				63A38D91293E473D00E44AD1 /* CarListView.swift */,
+				63A38DCA293E5FB300E44AD1 /* CarListViewModel.swift */,
 			);
 			path = CarList;
+			sourceTree = "<group>";
+		};
+		63A38DCE293E627200E44AD1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				63A38DCC293E622E00E44AD1 /* CarListViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		63A38DCF293E62B200E44AD1 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				63A38DD0293E62D100E44AD1 /* Car.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		63A38DD2293E695B00E44AD1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				63A38DD5293E69A200E44AD1 /* Strings.swift */,
+				63A38DC4293E4FD800E44AD1 /* Sizing.swift */,
+				63A38DC0293E4C2700E44AD1 /* Image+Extension.swift */,
+				63A38DC2293E4FC800E44AD1 /* Color+Extension.swift */,
+				63A38DD3293E698100E44AD1 /* Float+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,11 +337,16 @@
 			files = (
 				63A38DBC293E499900E44AD1 /* CarRow.swift in Sources */,
 				63A38D92293E473D00E44AD1 /* CarListView.swift in Sources */,
+				63A38DD1293E62D100E44AD1 /* Car.swift in Sources */,
 				63A38DBE293E49AE00E44AD1 /* CarRowViewModel.swift in Sources */,
 				63A38DC5293E4FD800E44AD1 /* Sizing.swift in Sources */,
 				63A38DC3293E4FC800E44AD1 /* Color+Extension.swift in Sources */,
 				63A38DC1293E4C2700E44AD1 /* Image+Extension.swift in Sources */,
+				63A38DCD293E622E00E44AD1 /* CarListViewModelProtocol.swift in Sources */,
+				63A38DD4293E698100E44AD1 /* Float+Extensions.swift in Sources */,
 				63A38D90293E473D00E44AD1 /* TestApp.swift in Sources */,
+				63A38DD6293E69A200E44AD1 /* Strings.swift in Sources */,
+				63A38DCB293E5FB300E44AD1 /* CarListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
