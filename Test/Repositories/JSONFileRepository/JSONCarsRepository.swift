@@ -11,7 +11,7 @@ import Combine
 enum CarRepositoryError: Error {
     case repositoryDeallocated
     case fileNotExisting
-    case loadingFailed(error: Error)
+    case loadingFailed(error: Error?)
 }
 
 class CarsRepository: CarsRepositoryProtocol {
