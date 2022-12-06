@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CarRowViewModel: Identifiable {
+struct CarRowViewModel: Identifiable, Equatable {
     
     var id: String
     let name: String

@@ -9,9 +9,16 @@ import SwiftUI
 
 struct CarListView<ViewModelType: CarListViewModelProtocol & ObservableObject>: View {
     
-    @ObservedObject var viewModel: ViewModelType
     @State var expandedRowId: String?
     
+    @State var isMakePickerDisplayed: Bool = false
+    @State var isModelPickerDisplayed: Bool = false
+    
+    @State var selectedMake: String?
+    @State var selectedModel: String?
+
+    @ObservedObject var viewModel: ViewModelType
+
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 0.0) {
@@ -47,40 +54,52 @@ struct CarListView<ViewModelType: CarListViewModelProtocol & ObservableObject>: 
                         .padding(.mediumSpacing)
                 }
             }
+            .animation(.default, value: viewModel.carList)
         }
         .onAppear {
             self.expandedRowId = viewModel.carList.first?.id
         }
     }
-    
+
+    @ViewBuilder
     private func filters() -> some View {
         VStack(alignment: .leading) {
             Text("Filters")
                 .foregroundColor(.white)
             Group {
-                Button(action: {
-                    print("Filter 1 tapped")
-                }, label: {
-                    Text("Any make")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                })
-
-                Button(action: {
-                    print("Filter 2 tapped")
-                }, label: {
-                    Text("Any model")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                })
+                filter(
+                    title: selectedMake ?? "Any Make",
+                    items: viewModel.makes,
+                    selected: $selectedMake,
+                    displayed: $isMakePickerDisplayed
+                )
+                .onChange(of: selectedMake) {
+                    // Seems overkill but compiler failed to produce a diagnostic when passed a binding to a publised property from the viewModel directly...
+                    viewModel.selectedMake($0)
+                }
+                .bold()
+                .foregroundColor(selectedMake == nil ? .guidomiaLightGrey : .black)
+                filter(
+                    title: selectedModel ?? "Any Model",
+                    items: viewModel.models,
+                    selected: $selectedModel,
+                    displayed: $isModelPickerDisplayed
+                )
+                .onChange(of: selectedModel) {
+                    // Seems overkill but compiler failed to produce a diagnostic when passed a binding to a publised property from the viewModel directly...
+                    viewModel.selectedModel($0)
+                }
+                .bold()
+                .foregroundColor(selectedModel == nil ? .guidomiaLightGrey : .black)
             }
-            .bold()
-            .foregroundColor(.guidomiaLightGrey)
             .padding(CGFloat.smallSpacing)
             .background(Color.white)
             .cornerRadius(CGFloat.smallSpacing)
             .shadow(
                 color: Color.black,
                 radius: CGSize.shadowSize.width,
-                x: CGSize.shadowSize.width, y: CGSize.shadowSize.height)
+                x: CGSize.shadowSize.width, y: CGSize.shadowSize.height
+            )
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
@@ -89,6 +108,55 @@ struct CarListView<ViewModelType: CarListViewModelProtocol & ObservableObject>: 
         .padding()
     }
     
+    @ViewBuilder
+    private func filter(title: String,
+                        items: [String?],
+                        selected: Binding<String?>,
+                        displayed: Binding<Bool>
+                        ) -> some View {
+        if displayed.wrappedValue {
+            filterPicker(items: items, selected: selected, displayed: displayed)
+        } else {
+            filterButton(title: title, displayed: displayed)
+        }
+    }
+    
+    @ViewBuilder
+    private func filterButton(title: String,
+                              displayed: Binding<Bool>) -> some View {
+        Button(action: {
+            withAnimation {
+                displayed.wrappedValue = true
+            }
+        }, label: {
+            Text(title)
+                .frame(maxWidth: .infinity, alignment: .leading)
+        })
+    }
+
+    @ViewBuilder
+    private func filterPicker(items: [String?],
+                              selected: Binding<String?>,
+                              displayed: Binding<Bool>) -> some View {
+        VStack(alignment: .leading) {
+            Text(selected.wrappedValue ?? "Any Make")
+                .bold()
+                .foregroundColor(selected.wrappedValue == nil ? .guidomiaLightGrey : .black)
+            Picker("", selection: selected) {
+                ForEach(items, id: \.self) { make in
+                    Text(make ?? "Any Model")
+                }
+            }
+            .pickerStyle(WheelPickerStyle())
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .onTapGesture {
+            withAnimation {
+                displayed.wrappedValue = false
+            }
+        }
+    }
+
     @ViewBuilder
     private func reviewDetails(title: String, reviews: [String]) -> some View {
         VStack(alignment: .leading, spacing: 16.0) {
