@@ -28,8 +28,17 @@ struct CarListView<ViewModelType: CarListViewModelProtocol & ObservableObject>: 
         .onAppear {
             self.expandedRowId = viewModel.carList.first?.id
         }
+        .toolbarBackground(Color.guidomiaOrange, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        // Trick to add a leading text in a Navigation Bar
+        .navigationBarItems(
+            leading: Text("GUIDOMIA")
+                .foregroundColor(.white)
+                .font(.navBarTitleFont)
+                .bold()
+        )
     }
-    
+        
     @ViewBuilder
     private func noResults() -> some View {
         Text("No results for those criterias")

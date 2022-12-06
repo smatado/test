@@ -12,7 +12,9 @@ struct TestApp: App {
    
     var body: some Scene {
         WindowGroup {
-            CarListView(viewModel: CarListViewModel(carsRepository: CarsRepository()))
+            NavigationView {
+                CarListView(viewModel: CarListViewModel(carsRepository: CarsRepository()))
+            }
         }
     }
 }

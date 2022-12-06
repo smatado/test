@@ -36,6 +36,8 @@
 		63A38DF7293F959F00E44AD1 /* CarsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DF5293F955800E44AD1 /* CarsRepositoryMock.swift */; };
 		63A38DF8293F959F00E44AD1 /* MockUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DF3293F951800E44AD1 /* MockUtils.swift */; };
 		63A38DFA293FA25400E44AD1 /* AdHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DF9293FA25300E44AD1 /* AdHeader.swift */; };
+		63A38DFC293FA94700E44AD1 /* aAngkatanBersenjata.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63A38DFB293FA94700E44AD1 /* aAngkatanBersenjata.ttf */; };
+		63A38E00293FAC2300E44AD1 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38DFF293FAC2300E44AD1 /* Font+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,9 @@
 		63A38DF3293F951800E44AD1 /* MockUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUtils.swift; sourceTree = "<group>"; };
 		63A38DF5293F955800E44AD1 /* CarsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsRepositoryMock.swift; sourceTree = "<group>"; };
 		63A38DF9293FA25300E44AD1 /* AdHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdHeader.swift; sourceTree = "<group>"; };
+		63A38DFB293FA94700E44AD1 /* aAngkatanBersenjata.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = aAngkatanBersenjata.ttf; sourceTree = "<group>"; };
+		63A38DFD293FA95F00E44AD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		63A38DFF293FAC2300E44AD1 /* Font+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +125,7 @@
 		63A38D8E293E473D00E44AD1 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				63A38DFD293FA95F00E44AD1 /* Info.plist */,
 				63A38DF2293F950300E44AD1 /* Mocks */,
 				63A38DDA293E742100E44AD1 /* Repositories */,
 				63A38DD2293E695B00E44AD1 /* Extensions */,
@@ -185,6 +191,7 @@
 				63A38DC4293E4FD800E44AD1 /* Sizing.swift */,
 				63A38DC2293E4FC800E44AD1 /* Color+Extension.swift */,
 				63A38DD3293E698100E44AD1 /* Float+Extensions.swift */,
+				63A38DFF293FAC2300E44AD1 /* Font+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,6 +234,7 @@
 		63A38DEA293E7D8A00E44AD1 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				63A38DFB293FA94700E44AD1 /* aAngkatanBersenjata.ttf */,
 				63A38D93293E473D00E44AD1 /* Assets.xcassets */,
 				63A38DC6293E50A100E44AD1 /* CarImages.xcassets */,
 				63A38DC8293E50AC00E44AD1 /* Colors.xcassets */,
@@ -336,6 +344,7 @@
 			files = (
 				63A38DC7293E50A100E44AD1 /* CarImages.xcassets in Resources */,
 				63A38DC9293E50AC00E44AD1 /* Colors.xcassets in Resources */,
+				63A38DFC293FA94700E44AD1 /* aAngkatanBersenjata.ttf in Resources */,
 				63A38D97293E473D00E44AD1 /* Preview Assets.xcassets in Resources */,
 				63A38D94293E473D00E44AD1 /* Assets.xcassets in Resources */,
 				63A38DD8293E72F100E44AD1 /* car_list.json in Resources */,
@@ -367,6 +376,7 @@
 				63A38DF7293F959F00E44AD1 /* CarsRepositoryMock.swift in Sources */,
 				63A38DE8293E755400E44AD1 /* JSONCarsRepository.swift in Sources */,
 				63A38DE0293E74E700E44AD1 /* CarDTO.swift in Sources */,
+				63A38E00293FAC2300E44AD1 /* Font+Extensions.swift in Sources */,
 				63A38DCD293E622E00E44AD1 /* CarListViewModelProtocol.swift in Sources */,
 				63A38DD4293E698100E44AD1 /* Float+Extensions.swift in Sources */,
 				63A38DF0293F8F3E00E44AD1 /* CarRowExpandedDetail.swift in Sources */,
@@ -525,6 +535,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Test/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Test/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -553,6 +564,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Test/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Test/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
