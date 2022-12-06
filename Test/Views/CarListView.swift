@@ -15,6 +15,7 @@ struct CarListView<ViewModelType: CarListViewModelProtocol & ObservableObject>: 
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 0.0) {
+                AdHeader()
                 FiltersHeader(viewModel: viewModel)
                 if viewModel.carList.isEmpty {
                     noResults()
