@@ -85,6 +85,6 @@ struct CarListView<ViewModelType: CarListViewModelProtocol & ObservableObject>: 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CarListView<CarListViewModel>(viewModel: CarListViewModel(carsRepository: CarsRepository()))
+        CarListView<CarListViewModel>(viewModel: CarListViewModel(carsRepository: RepositoryContainer.shared))
     }
 }

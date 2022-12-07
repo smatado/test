@@ -8,15 +8,9 @@
 import Foundation
 import Combine
 
-enum CarRepositoryError: Error {
-    case repositoryDeallocated
-    case fileNotExisting
-    case loadingFailed(error: Error?)
-}
-
-class CarsRepository: CarsRepositoryProtocol {
+class JSONCarsRepository: CarsRepositoryProtocol {
     
-    var cars: AnyPublisher<[Car], CarRepositoryError> {
+    var cars: AnyPublisher<[Car], CarsRepositoryError> {
         Deferred {
             Future { [weak self] promise in
                 guard let self = self else {
@@ -30,15 +24,19 @@ class CarsRepository: CarsRepositoryProtocol {
         .eraseToAnyPublisher()
     }
     
+    func save(cars: [Car]) -> AnyPublisher<Void, CarsRepositoryError> {
+        Fail(error: CarsRepositoryError.operationNotPermitted).eraseToAnyPublisher()
+    }
+    
     private var cache: [Car]?
     
-    func loadCarsFromFile(named name: String) -> Result<[Car], CarRepositoryError> {
+    private func loadCarsFromFile(named name: String) -> Result<[Car], CarsRepositoryError> {
         if let cars = cache {
             return .success(cars)
         }
         
         guard let path = Bundle.main.path(forResource: name, ofType: "json") else {
-            return .failure(CarRepositoryError.fileNotExisting)
+            return .failure(CarsRepositoryError.fileNotExisting)
         }
 
         do {

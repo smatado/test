@@ -15,32 +15,11 @@ final class CarListViewModelTests: XCTestCase {
     lazy var carListViewModel = CarListViewModel(carsRepository: carsRepositoryMock)
     var cancellables = Set<AnyCancellable>()
     
-    let carMocks = [
-        Car(make: "Alpine",
-            model: "A610",
-            price: 10_000,
-            imageName: "",
-            rating: 3
-           ),
-        Car(make: "BMW",
-            model: "M3",
-            price: 150_000,
-            imageName: "",
-            rating: 5
-           ),
-        Car(make: "Chevrolet",
-            model: "Blazer",
-            price: 50_000,
-            imageName: "",
-            rating: 4
-           ),
-    ]
-    
     func testLoadCars() throws {
         let expectation = self.expectation(description: "testLoadCars")
         
         // GIVEN
-        carsRepositoryMock.mockTestCase = .success(output: carMocks)
+        carsRepositoryMock.mockTestCase = .success(output: CarsMock.shared)
         
         // WHEN
         carListViewModel.$carList
@@ -53,8 +32,8 @@ final class CarListViewModelTests: XCTestCase {
             .store(in: &cancellables)
         
         // THEN
-        waitForExpectations(timeout: 1)
-        XCTAssertEqual(carMocks.map { "\($0.make) \($0.model)" },
+        waitForExpectations(timeout: 3)
+        XCTAssertEqual(CarsMock.shared.map { "\($0.make) \($0.model)" },
                        carListViewModel.carList.map { $0.name })
     }
     
@@ -62,7 +41,7 @@ final class CarListViewModelTests: XCTestCase {
         let expectation = self.expectation(description: "testLoadCarsWithMakeFilter")
         
         // GIVEN
-        carsRepositoryMock.mockTestCase = .success(output: carMocks)
+        carsRepositoryMock.mockTestCase = .success(output: CarsMock.shared)
         carListViewModel.selectedMake("BMW")
 
         // WHEN
@@ -85,7 +64,7 @@ final class CarListViewModelTests: XCTestCase {
         let expectation = self.expectation(description: "testLoadCarsWithModelFilter")
         
         // GIVEN
-        carsRepositoryMock.mockTestCase = .success(output: carMocks)
+        carsRepositoryMock.mockTestCase = .success(output: CarsMock.shared)
         carListViewModel.selectedModel("Blazer")
 
         // WHEN
@@ -100,7 +79,7 @@ final class CarListViewModelTests: XCTestCase {
         
         
         // THEN
-        waitForExpectations(timeout: 1)
+        waitForExpectations(timeout: 3)
         XCTAssertEqual(carListViewModel.carList.map { $0.name }, ["Chevrolet Blazer"])
     }
 }

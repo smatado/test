@@ -50,6 +50,6 @@ struct CarRow: View {
 
 struct CarRow_Previews: PreviewProvider {
     static var previews: some View {
-        CarListView(viewModel: CarListViewModel(carsRepository: CarsRepository()))
+        CarListView(viewModel: CarListViewModel(carsRepository: RepositoryContainer.shared))
     }
 }

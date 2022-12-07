@@ -52,7 +52,7 @@ class CarListViewModel: CarListViewModelProtocol, ObservableObject {
 
     // MARK: - Private func
 
-    private func subscribeCarViewModels(carsPublisher: AnyPublisher<[Car], CarRepositoryError>) {
+    private func subscribeCarViewModels(carsPublisher: AnyPublisher<[Car], CarsRepositoryError>) {
         carsPublisher
             .replaceError(with: [])
             .combineLatest(selectedMakeSubject.eraseToAnyPublisher(), selectedModelSubject.eraseToAnyPublisher())
@@ -73,8 +73,8 @@ class CarListViewModel: CarListViewModelProtocol, ObservableObject {
             .assign(to: \.carList, on: self)
             .store(in: &cancellables)
     }
-
-    private func subscribeMakeFilters(carsPublisher: AnyPublisher<[Car], CarRepositoryError>) {
+    
+    private func subscribeMakeFilters(carsPublisher: AnyPublisher<[Car], CarsRepositoryError>) {
         carsPublisher
             .replaceError(with: [])
             .map { cars in
@@ -88,7 +88,7 @@ class CarListViewModel: CarListViewModelProtocol, ObservableObject {
             .store(in: &cancellables)
     }
 
-    private func subscribeModelFilters(carsPublisher: AnyPublisher<[Car], CarRepositoryError>) {
+    private func subscribeModelFilters(carsPublisher: AnyPublisher<[Car], CarsRepositoryError>) {
         carsPublisher
             .replaceError(with: [])
             .map { cars in

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Car {
+struct Car: Equatable {
     var id: String
     let make: String
     let model: String

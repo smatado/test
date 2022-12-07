@@ -8,6 +8,15 @@
 import Foundation
 import Combine
 
+enum CarsRepositoryError: Error {
+    case repositoryDeallocated
+    case fileNotExisting
+    case loadingFailed(error: Error?)
+    case saveFailed(error: Error?)
+    case operationNotPermitted
+}
+
 protocol CarsRepositoryProtocol {
-    var cars: AnyPublisher<[Car], CarRepositoryError> { get }
+    var cars: AnyPublisher<[Car], CarsRepositoryError> { get }
+    func save(cars: [Car]) -> AnyPublisher<Void, CarsRepositoryError>
 }

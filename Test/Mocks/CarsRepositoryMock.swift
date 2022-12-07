@@ -16,15 +16,19 @@ class CarsRepositoryMock: CarsRepositoryProtocol {
         self.mockTestCase = mockTestCase
     }
     
-    var cars: AnyPublisher<[Car], CarRepositoryError> {
+    var cars: AnyPublisher<[Car], CarsRepositoryError> {
         switch mockTestCase {
         case .success(let output):
             return Just(output)
-                .setFailureType(to: CarRepositoryError.self)
+                .setFailureType(to: CarsRepositoryError.self)
                 .eraseToAnyPublisher()
         case .failure:
-            return Fail(error: CarRepositoryError.loadingFailed(error: nil))
+            return Fail(error: CarsRepositoryError.loadingFailed(error: nil))
                 .eraseToAnyPublisher()
         }
+    }
+    
+    func save(cars: [Car]) -> AnyPublisher<Void, CarsRepositoryError> {
+        return Empty<Void, CarsRepositoryError>().eraseToAnyPublisher()
     }
 }
