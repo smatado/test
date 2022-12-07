@@ -17,7 +17,15 @@ struct Car: Equatable {
     let pros: [String]
     let cons: [String]
     
-    init(id: String = UUID().uuidString, make: String, model: String, price: Float, imageName: String, rating: Int, pros: [String] = [], cons: [String] = []) {
+    init(id: String = UUID().uuidString,
+         make: String,
+         model: String,
+         price: Float,
+         imageName: String,
+         rating: Int,
+         pros: [String] = [],
+         cons: [String] = []
+    ) {
         self.id = id
         self.make = make
         self.model = model

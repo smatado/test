@@ -23,6 +23,7 @@ final class JSONCarsRepositoryTests: XCTestCase {
         // GIVEN
         var receivedCars: [Car]? = nil
 
+        // WHEN
         carsRepository?.cars
             .replaceError(with: [])
             .sink(receiveValue: { cars in

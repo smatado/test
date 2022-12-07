@@ -24,6 +24,7 @@ final class CoreDataCarsRepositoryTests: XCTestCase {
         // GIVEN
         var receivedCars: [Car]? = nil
 
+        // WHEN
         carsRepository?.cars
             .replaceError(with: [])
             .sink(receiveValue: { cars in
@@ -41,7 +42,6 @@ final class CoreDataCarsRepositoryTests: XCTestCase {
         let expectation = self.expectation(description: "test_coreData_save")
 
         // GIVEN
-        
         var receivedCars: [Car]? = nil
 
         // WHEN
