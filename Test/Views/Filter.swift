@@ -31,6 +31,7 @@ struct Filter: View {
         }, label: {
             Text(title)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(.black)
         })
     }
 
@@ -45,6 +46,7 @@ struct Filter: View {
             Picker("", selection: selected) {
                 ForEach(items, id: \.self) { make in
                     Text(make ?? "Any Model")
+                        .foregroundColor(.black)
                 }
             }
             .pickerStyle(WheelPickerStyle())
