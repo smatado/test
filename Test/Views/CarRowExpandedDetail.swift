@@ -13,7 +13,7 @@ struct CarRowExpandedDetail: View {
     let reviews: [String]
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16.0) {
+        VStack(alignment: .leading, spacing: CGFloat.smallSpacing) {
             Text(title)
                 .padding(.leading, CGFloat.mediumSpacing)
                 .font(.title2)
