@@ -21,7 +21,7 @@ struct CarRowViewModel: Identifiable, Equatable {
     init(car: Car) {
         id = car.id
         name = "\(car.make) \(car.model)"
-        price = "\(String.priceLabel): \(car.price.formattedPrice)"
+        price = "\("price".localized): \(car.price.formattedPrice)"
         imageName = car.imageName
         rating = car.rating
         pros = car.pros

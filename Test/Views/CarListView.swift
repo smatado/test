@@ -41,7 +41,7 @@ struct CarListView<ViewModelType: CarListViewModelProtocol & ObservableObject>: 
         
     @ViewBuilder
     private func noResults() -> some View {
-        Text("No results for those criterias")
+        Text("no_results".localized)
             .padding()
             .frame(maxWidth: .infinity, alignment: .center)
     }
@@ -56,10 +56,10 @@ struct CarListView<ViewModelType: CarListViewModelProtocol & ObservableObject>: 
                 if isExpanded {
                     VStack(alignment: .leading, spacing: 0.0) {
                         if carViewModel.pros.count > 0 {
-                            CarRowExpandedDetail(title: "Pros :", reviews: carViewModel.pros)
+                            CarRowExpandedDetail(title: "pros".localized, reviews: carViewModel.pros)
                         }
                         if carViewModel.cons.count > 0 {
-                            CarRowExpandedDetail(title: "Cons :", reviews: carViewModel.cons)
+                            CarRowExpandedDetail(title: "cons".localized, reviews: carViewModel.cons)
                         }
                     }
                 }

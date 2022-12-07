@@ -18,7 +18,7 @@ struct AdHeader: View {
                         .foregroundColor(.white)
                         .font(.title)
                         .bold()
-                    Text("Get your's now")
+                    Text("ad_text".localized)
                         .foregroundColor(.white)
                         .font(.title3)
                         .bold()

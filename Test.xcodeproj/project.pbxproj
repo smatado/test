@@ -50,6 +50,7 @@
 		63A38E1729402D3700E44AD1 /* CarsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38E1629402D3700E44AD1 /* CarsMock.swift */; };
 		63A38E1929402F2F00E44AD1 /* CoreDataCarsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38E1829402F2F00E44AD1 /* CoreDataCarsRepositoryTests.swift */; };
 		63A38E1B2940303100E44AD1 /* JSONCarsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38E1A2940303100E44AD1 /* JSONCarsRepositoryTests.swift */; };
+		63A38E1E29403AB400E44AD1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63A38E2029403AB400E44AD1 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		63A38E1629402D3700E44AD1 /* CarsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsMock.swift; sourceTree = "<group>"; };
 		63A38E1829402F2F00E44AD1 /* CoreDataCarsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCarsRepositoryTests.swift; sourceTree = "<group>"; };
 		63A38E1A2940303100E44AD1 /* JSONCarsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCarsRepositoryTests.swift; sourceTree = "<group>"; };
+		63A38E1F29403AB400E44AD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 				63A38DC6293E50A100E44AD1 /* CarImages.xcassets */,
 				63A38DC8293E50AC00E44AD1 /* Colors.xcassets */,
 				63A38DD7293E72F100E44AD1 /* car_list.json */,
+				63A38E2029403AB400E44AD1 /* Localizable.strings */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				63A38DC7293E50A100E44AD1 /* CarImages.xcassets in Resources */,
 				63A38DC9293E50AC00E44AD1 /* Colors.xcassets in Resources */,
 				63A38DFC293FA94700E44AD1 /* aAngkatanBersenjata.ttf in Resources */,
+				63A38E1E29403AB400E44AD1 /* Localizable.strings in Resources */,
 				63A38D97293E473D00E44AD1 /* Preview Assets.xcassets in Resources */,
 				63A38D94293E473D00E44AD1 /* Assets.xcassets in Resources */,
 				63A38DD8293E72F100E44AD1 /* car_list.json in Resources */,
@@ -473,6 +477,17 @@
 			targetProxy = 63A38D9D293E473D00E44AD1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		63A38E2029403AB400E44AD1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63A38E1F29403AB400E44AD1 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		63A38DAE293E473D00E44AD1 /* Debug */ = {

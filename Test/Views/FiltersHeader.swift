@@ -19,7 +19,7 @@ struct FiltersHeader<ViewModelType: CarListViewModelProtocol & ObservableObject>
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Filters")
+            Text("filters".localized)
                 .foregroundColor(.white)
             Group {
                 makefilter()
@@ -44,10 +44,11 @@ struct FiltersHeader<ViewModelType: CarListViewModelProtocol & ObservableObject>
     @ViewBuilder
     private func makefilter() -> some View {
         Filter(
-            title: selectedMake ?? "Any Make",
+            title: selectedMake ?? "any_make".localized,
             items: viewModel.makes,
             selected: $selectedMake,
-            displayed: $isMakePickerDisplayed
+            displayed: $isMakePickerDisplayed,
+            defaultText: "any_make".localized
         )
         .onChange(of: selectedMake) {
             // This is overkill to observe this value while we could pass viewModel binding directly
@@ -61,10 +62,11 @@ struct FiltersHeader<ViewModelType: CarListViewModelProtocol & ObservableObject>
     @ViewBuilder
     private func modelfilter() -> some View {
         Filter(
-            title: selectedModel ?? "Any Model",
+            title: selectedModel ?? "any_model".localized,
             items: viewModel.models,
             selected: $selectedModel,
-            displayed: $isModelPickerDisplayed
+            displayed: $isModelPickerDisplayed,
+            defaultText: "any_model".localized
         )
         .onChange(of: selectedModel) {
             // This is overkill to observe this value while we could pass viewModel binding directly

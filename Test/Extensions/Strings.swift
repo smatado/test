@@ -8,5 +8,7 @@
 import Foundation
 
 extension String {
-    static var priceLabel = "Price"
+    var localized: String {
+        NSLocalizedString(self, comment: "")
+    }
 }

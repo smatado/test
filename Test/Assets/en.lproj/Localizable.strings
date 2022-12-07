@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  Test
+
+  Created by Silbino Gonçalves Matado on 2022-12-06.
+  
+*/
+
+"ad_text" = "Get your's now";
+
+"filters" = "Filters";
+"any" = "Any";
+"any_make" = "Any Make";
+"any_model" = "Any Model";
+
+"price" = "Price: ";
+"pros" = "Pros :";
+"cons" = "Cons :";
+
+"no_results" = "No results for those criterias";

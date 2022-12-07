@@ -13,10 +13,11 @@ struct Filter: View {
     var items: [String?]
     var selected: Binding<String?>
     var displayed: Binding<Bool>
+    var defaultText: String
     
     var body: some View {
         if displayed.wrappedValue {
-            filterPicker(items: items, selected: selected, displayed: displayed)
+            filterPicker(items: items, selected: selected, displayed: displayed, defaultText: defaultText)
         } else {
             filterButton(title: title, displayed: displayed)
         }
@@ -31,21 +32,22 @@ struct Filter: View {
         }, label: {
             Text(title)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(.black)
+                .foregroundColor(selected.wrappedValue == nil ? .guidomiaLightGrey : .black)
         })
     }
 
     @ViewBuilder
     private func filterPicker(items: [String?],
                               selected: Binding<String?>,
-                              displayed: Binding<Bool>) -> some View {
+                              displayed: Binding<Bool>,
+                              defaultText: String) -> some View {
         VStack(alignment: .leading) {
-            Text(selected.wrappedValue ?? "Any Make")
+            Text(selected.wrappedValue ?? defaultText)
                 .bold()
                 .foregroundColor(selected.wrappedValue == nil ? .guidomiaLightGrey : .black)
             Picker("", selection: selected) {
-                ForEach(items, id: \.self) { make in
-                    Text(make ?? "Any Model")
+                ForEach(items, id: \.self) { item in
+                    Text(item ?? defaultText)
                         .foregroundColor(.black)
                 }
             }
